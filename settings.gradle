@@ -1,0 +1,21 @@
+dependencyResolutionManagement {
+    //repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "glue"
+include ':app'
+include ':annotation'
+include ':compiler'
+include ':manager'
+include ':plugin'
+include ':api'
+include ':profile'
+
+project(":plugin").projectDir = new File(settingsDir, "library/plugin")
+project(":manager").projectDir = new File(settingsDir, "library/manager")
+project(":compiler").projectDir = new File(settingsDir, "library/compiler")
+project(":annotation").projectDir = new File(settingsDir, "library/annotation")
