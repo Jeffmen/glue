@@ -23,7 +23,6 @@ class InitClassVisitor(
         val mv = cv.visitMethod(access, name, desc, signature, exceptions)
         //注入代码到指定的方法之中
         if (name == initMethod) {
-            println("$TAG register access:=${access}")
             return InitMethodVisitor(Opcodes.ASM6, mv, access, initClassName, registerMethod, cache)
         }
         return mv
@@ -43,7 +42,7 @@ class InitMethodVisitor(
         if ((opcode >= Opcodes.IRETURN && opcode <= Opcodes.RETURN)) {
             cache.moduleList.forEach {
                 it.value.forEach {
-                    println("$TAG register class:=${it.generateClass}")
+                    println("register class:=${it.generateClass}")
                     val className = it.generateClass.replace("/", ".")
                     if (access == 10) {
                         mv.visitLdcInsn(className)

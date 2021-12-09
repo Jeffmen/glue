@@ -1,8 +1,6 @@
 package com.camp.glue.plugin
 
-import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.ClassVisitor
-import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
 class ScanClassVisitor(
@@ -13,22 +11,6 @@ class ScanClassVisitor(
     private val autoSetting: AutoSetting,
     private val cache: RegisterModel
 ) : ClassVisitor(api, cv) {
-
-    override fun visitAnnotation(descriptor: String?, visible: Boolean): AnnotationVisitor {
-        println("visitAnnotation descriptor:=${descriptor}")
-        return super.visitAnnotation(descriptor, visible)
-    }
-
-    override fun visitMethod(
-        access: Int,
-        name: String?,
-        descriptor: String?,
-        signature: String?,
-        exceptions: Array<out String>?
-    ): MethodVisitor {
-        println("visitMethod name:=${name}")
-        return super.visitMethod(access, name, descriptor, signature, exceptions)
-    }
 
     private fun isFlag(access: Int, flag: Int) = (access and flag) == flag
 

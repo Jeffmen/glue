@@ -3,7 +3,6 @@ package com.camp.glue.plugin
 import com.android.build.api.transform.*
 import com.android.build.gradle.internal.pipeline.TransformManager
 import com.android.builder.model.AndroidProject.FD_INTERMEDIATES
-import com.camp.glue.plugin.*
 import com.squareup.moshi.Moshi
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.io.FileUtils
@@ -133,7 +132,7 @@ class RegisterTransform(private val project: Project) : Transform() {
         listSetting.forEach { autoSetting ->
             val registerModel = cache.findRegisterModel(autoSetting.autoGroup)
             registerModel.initClassName?.let {
-                println("$TAG register-cache.json path:=$it")
+                println("$TAG init class path:=$it")
                 val jarFile = File(it)
                 val optJar = File(jarFile.parent, jarFile.name + ".opt")
                 if (optJar.exists()) {
@@ -275,7 +274,7 @@ class RegisterTransform(private val project: Project) : Transform() {
 
     private fun getCache(): CacheModel {
         val cacheFile = getCacheFile()
-        println("$TAG INIT_CLASS_NAME:=${cacheFile.absolutePath}")
+        println("$TAG cache file:=${cacheFile.absolutePath}")
         return if (cacheFile.exists()) {
             readJsonFile(cacheFile)
         } else {
