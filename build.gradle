@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        maven { url uri('/Users/rain/.m2/repository/') }
+        maven { url uri('/Users/jeffman/.m2/repository/') }
         google()
         mavenCentral()
     }
