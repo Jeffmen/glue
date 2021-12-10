@@ -21,9 +21,9 @@ dependencies {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId "com.camp.glue"
+            groupId PUBLISH_GROUP_ID
             artifactId "plugin"
-            version "1.0.0"
+            version PUBLISH_VERSION
 
             from components.java
         }
