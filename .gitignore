@@ -1,0 +1,9 @@
+/app/build
+/api/build
+/.idea
+/.gradle
+/profile/build
+/library/plugin/build
+/library/manager/build
+/library/compiler/build
+/library/annotation/build
