@@ -1,0 +1,2 @@
+# glue
+android component solution
